@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эхо-Перевертыш | Игра для двоих</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Контейнер для всплывающих уведомлений -->
+        <div id="toast-container" class="toast-container"></div>
+        <h1>🎙️ Эхо-Перевертыш</h1>
+        <p class="subtitle">Запиши слово, переверни, повтори и сравни!</p>
+
+        <!-- Шаг 1: Игрок 1 -->
+        <div class="card" id="step1">
+            <h2>Шаг 1: Игрок 1</h2>
+            <p>Загадай слово и запиши его</p>
+            <button id="record1" class="btn btn-record">🔴 Записать</button>
+        </div>
+
+        <!-- Шаг 2: Игрок 2 -->
+        <div class="card" id="step2">
+            <h2>Шаг 2: Игрок 2</h2>
+            <p>Попробуй повторить то, что услышал выше!</p>
+            <button id="play-reverse1" class="btn btn-play" disabled>🔄 Слушать задом наперед (для Игрока 2)</button>
+            <button id="record2" class="btn btn-record" disabled>🔴 Записать повтор</button>
+        </div>
+
+        <!-- Шаг 3: Финал -->
+        <div class="card" id="step3">
+            <h2>Шаг 3: Результат!</h2>
+            <p>Слушаем, что получилось в итоге:</p>
+            <div class="result-buttons">
+                <button id="play-orig" class="btn btn-final" disabled>🔈 1. Оригинал Игрока 1</button>
+                <button id="play-final" class="btn btn-final btn-success" disabled>🔊 2. Итог Игрока 2 (Развернутый)</button>
+            </div>
+            <button id="reset" class="btn btn-reset">🔄 Играть заново</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

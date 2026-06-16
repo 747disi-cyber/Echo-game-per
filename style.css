@@ -1,0 +1,179 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --primary: #3b82f6;
+    --record-color: #ef4444;
+    --success: #10b981;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+    color: #60a5fa;
+}
+
+.subtitle {
+    color: #94a3b8;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    transition: transform 0.3s;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.btn-record {
+    background-color: var(--record-color);
+    color: white;
+}
+
+.btn-record.recording {
+    animation: pulse 1.5s infinite;
+    background-color: #b91c1c;
+}
+
+.btn-play {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-final {
+    background-color: #475569;
+    color: white;
+}
+
+.btn-success {
+    background-color: var(--success);
+}
+
+.btn-reset {
+    background-color: transparent;
+    color: #94a3b8;
+    border: 1px solid #475569;
+}
+
+.btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.result-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.4); }
+    100% { transform: scale(1); }
+}
+
+/* Контейнер для уведомлений */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Базовый стиль уведомления */
+.toast {
+    padding: 14px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    
+    /* Анимация появления сверху и плавного исчезновения */
+    animation: slideInDown 0.3s ease-out forwards;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Зеленое уведомление успеха (для сброса) */
+.toast.success {
+    background-color: var(--success);
+    border-left: 5px solid #065f46;
+}
+
+/* Красное уведомление ошибки */
+.toast.error {
+    background-color: var(--record-color);
+    border-left: 5px solid #991b1b;
+}
+
+/* Анимация плавного выката сверху */
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Класс для плавного скрытия через JS */
+.toast.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
