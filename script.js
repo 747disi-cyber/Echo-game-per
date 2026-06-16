@@ -152,11 +152,11 @@ recordBtn2.addEventListener('click', () => {
 });
 
 playOrigBtn.addEventListener('click', () => {
-    playBuffer(audioBuffer1, playOrigBtn, "🔈 1. Оригинал Игрока 1", false);
+    playBuffer(audioBuffer1, playOrigBtn, "Оригинал Игрока 1", false);
 });
 
 playFinalBtn.addEventListener('click', () => {
-    playBuffer(audioBuffer2, playFinalBtn, "🔊 2. Итог Игрока 2 (Развернутый)", true);
+    playBuffer(audioBuffer2, playFinalBtn, "Итог Игрока 2 (Развернутый)", true);
 });
 
 resetBtn.addEventListener('click', () => {
