@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Включите JavaScript</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .message-box {
+      border: 3px solid #ff4d4d;
+      padding: 28px;
+      border-radius: 18px;
+      max-width: 440px;
+      width: min(90vw, 440px);
+      text-align: center;
+      background: rgba(0,0,0,0.75);
+    }
+    .message-box h1 {
+      margin: 0 0 14px;
+      font-size: 1.85rem;
+    }
+    .message-box p {
+      margin: 0 0 22px;
+      line-height: 1.6;
+      color: #f2f2f2;
+    }
+    .message-box button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #ff4d4d;
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-box">
+    <h1>JavaScript отключён</h1>
+    <p>Для работы сайта нужен JavaScript. Включите его в браузере и нажмите кнопку ниже.</p>
+    <button id="reloadButton">Я включил js, обновить страницу</button>
+  </div>
+
+  <script>
+    const reloadButton = document.getElementById('reloadButton');
+    reloadButton.addEventListener('click', () => {
+      sessionStorage.setItem('reloadFromNoJs', '1');
+      location.reload();
+    });
+
+    if (sessionStorage.getItem('reloadFromNoJs')) {
+      sessionStorage.removeItem('reloadFromNoJs');
+      location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
